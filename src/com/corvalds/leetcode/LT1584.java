@@ -3,6 +3,7 @@ package com.corvalds.leetcode;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 /**
  * 问题简述：最小生成树<br/>
@@ -73,4 +74,54 @@ public class LT1584 {
             return parent[a];
         }
     }
+
+//    Prim算法版本
+//    private boolean[] visited;
+//
+//    private PriorityQueue<int[]> queue;
+//
+//    public int minCostConnectPoints(int[][] points) {
+//        int[][] graph = new int[points.length][points.length];
+//        visited = new boolean[points.length];
+//        // 使用Prim算法计算最小生成树
+//        // 构建图
+//        for (int i = 0; i < points.length; i++) {
+//            // 当前节点与自身的权重为0
+//            graph[i][i] = 0;
+//            for (int j = i + 1; j < points.length; j++) {
+//                graph[i][j] = Math.abs(points[i][0] - points[j][0]) + Math.abs(points[i][1] - points[j][1]);
+//                graph[j][i] = graph[i][j];
+//            }
+//        }
+//
+//        queue = new PriorityQueue<>(Comparator.comparing(el -> el[2]));
+//        // 切分节点0
+//        cut(graph, 0);
+//        int sum = 0;
+//        while (!queue.isEmpty()) {
+//            int[] tuple = queue.poll();
+//            int from = tuple[0];
+//            int to = tuple[1];
+//            int weight = tuple[2];
+//
+//            if (visited[to]) {
+//                continue;
+//            }
+//
+//            sum += weight;
+//            cut(graph, to);
+//        }
+//        return sum;
+//    }
+//
+//    private void cut(int[][] graph, int node) {
+//        visited[node] = true;
+//        for (int i = 0; i < graph.length; i++) {
+//            if (node == i || visited[i]) {
+//                continue;
+//            }
+//            // 将当前节点所有未入队的边都进行入队
+//            queue.add(new int[]{node, i, graph[node][i]});
+//        }
+//    }
 }
