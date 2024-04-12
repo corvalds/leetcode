@@ -7,6 +7,9 @@ package com.corvalds.leetcode;
  */
 public class LT67 {
 
+    /**
+     * TODO 有更简洁的写法，后续重新再写一遍
+     */
     public String addBinary(String a, String b) {
         StringBuilder sb = new StringBuilder();
         char[] aArray = a.toCharArray();
