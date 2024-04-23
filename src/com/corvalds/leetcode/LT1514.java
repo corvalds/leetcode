@@ -51,6 +51,8 @@ public class LT1514 {
             double currentNodeProbToStartNode = state.probToStartNode;
 
             if (currentNode == targetNode) {
+                // 当第一次从队列中取出目标点的State时即可返回，因为当第一次从队列中取出目标点State时，意味着目前已知路径中，已经包含目标点的最优路径
+                // 那有没有可能在队列中还有其他图节点包含到目标点的最优路径？不可能，因为还在队列中的图节点到起始点的可能性比目标点还小，经过这些图节点到目标点的路径可能性只会更小，不可能更大
                 return currentNodeProbToStartNode;
             }
             if (currentNodeProbToStartNode < maxProbsArray[currentNode]) {
